@@ -1,5 +1,6 @@
 //<span class="cmdIcon fa-solid fa-ellipsis-vertical"></span>
 let contentScrollPosition = 0;
+let selectedCat = "";
 Init_UI();
 
 function Init_UI() {
@@ -9,6 +10,34 @@ function Init_UI() {
         renderCreateContactForm();
     });
     $('#abort').on("click", async function () {
+        renderContacts();
+    });
+    $('#cegepCat').on("click", function () {
+        selectedCat = "cegepCat";
+        renderContacts();
+    });
+    $('#cloudCat').on("click", function () {
+        selectedCat = "cloudCat";
+        renderContacts();
+    });
+    $('#meteoCat').on("click", function () {
+        selectedCat = "cegepCat";
+        renderContacts();
+    });
+    $('#nouvCat').on("click", function () {
+        selectedCat = "nouvCat";
+        renderContacts();
+    });
+    $('#resCat').on("click", function () {
+        selectedCat = "resCat";
+        renderContacts();
+    });
+    $('#streamCat').on("click", function () {
+        selectedCat = "streamCat";
+        renderContacts();
+    });
+    $('#uniCat').on("click", function () {
+        selectedCat = "uniCat";
         renderContacts();
     });
     $('#aboutCmd').on("click", function () {
@@ -25,14 +54,14 @@ function renderAbout() {
     $("#content").append(
         $(`
             <div class="aboutContainer">
-                <h2>Gestionnaire de contacts</h2>
+                <h2>Gestionnaire de favoris</h2>
                 <hr>
                 <p>
                     Petite application de gestion de contacts à titre de démonstration
                     d'interface utilisateur monopage réactive.
                 </p>
                 <p>
-                    Auteur: Nicolas Chourot
+                    Auteur: Nicolas Chourot, modifié par Tristan Berthiaume
                 </p>
                 <p>
                     Collège Lionel-Groulx, automne 2023
@@ -42,7 +71,7 @@ function renderAbout() {
 }
 async function renderContacts() {
     showWaitingGif();
-    $("#actionTitle").text("Liste des contacts");
+    $("#actionTitle").text("Liste des favoris");
     $("#createContact").show();
     $("#abort").hide();
     let contacts = await Contacts_API.Get();
@@ -160,38 +189,38 @@ function renderContactForm(contact = null) {
         <form class="form" id="contactForm">
             <input type="hidden" name="Id" value="${contact.Id}"/>
 
-            <label for="Name" class="form-label">Nom </label>
+            <label for="Titre" class="form-label">Titre </label>
             <input 
                 class="form-control Alpha"
                 name="Name" 
                 id="Name" 
                 placeholder="Nom"
                 required
-                RequireMessage="Veuillez entrer un nom"
-                InvalidMessage="Le nom comporte un caractère illégal" 
-                value="${contact.Name}"
+                RequireMessage="Veuillez entrer un titre"
+                InvalidMessage="Le titre comporte un caractère illégal" 
+                value="${contact.Titre}"
             />
-            <label for="Phone" class="form-label">Téléphone </label>
+            <label for="Url" class="form-label">Url </label>
             <input
                 class="form-control Phone"
-                name="Phone"
-                id="Phone"
-                placeholder="(000) 000-0000"
+                name="Url"
+                id="Url"
+                placeholder="Url"
                 required
-                RequireMessage="Veuillez entrer votre téléphone" 
-                InvalidMessage="Veuillez entrer un téléphone valide"
-                value="${contact.Phone}" 
+                RequireMessage="Veuillez entrer une url" 
+                InvalidMessage="Veuillez entrer un url valide"
+                value="${contact.Url}" 
             />
-            <label for="Email" class="form-label">Courriel </label>
+            <label for="Categorie" class="form-label">Categorie </label>
             <input 
-                class="form-control Email"
-                name="Email"
-                id="Email"
-                placeholder="Courriel"
+                class="form-control Alpha"
+                name="Categorie"
+                id="Categorie"
+                placeholder="Categorie"
                 required
-                RequireMessage="Veuillez entrer votre courriel" 
-                InvalidMessage="Veuillez entrer un courriel valide"
-                value="${contact.Email}"
+                RequireMessage="Veuillez entrer la categorie" 
+                InvalidMessage="Veuillez entrer une categorie valide"
+                value="${contact.Categorie}"
             />
             <hr>
             <input type="submit" value="Enregistrer" id="saveContact" class="btn btn-primary">
@@ -225,19 +254,24 @@ function getFormData($form) {
 }
 
 function renderContact(contact) {
-    return $(`
-     <div class="contactRow" contact_id=${contact.Id}">
-        <div class="contactContainer noselect">
-            <div class="contactLayout">
-                <span class="contactName">${contact.Name}</span>
-                <span class="contactPhone">${contact.Phone}</span>
-                <span class="contactEmail">${contact.Email}</span>
+    if(selectedCat == "allCat" || selectedCat == contact.Categorie){
+        return $(`
+        <div class="contactRow" contact_id=${contact.Id}">
+            <div class="contactContainer noselect">
+                <div class="contactLayout">
+                    <img style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${contact.Url}"/>
+                    <span class="contactName>${contact.Titre}</span>
+                </div>
+                    <a href="${contact.Url}">
+                        <span class="contactPhone">${contact.Categorie}</span>
+                    </a>
+                </div>
+                <div class="contactCommandPanel">
+                    <span class="editCmd cmdIcon fa fa-pencil" editContactId="${contact.Id}" title="Modifier ${contact.Name}"></span>
+                    <span class="deleteCmd cmdIcon fa fa-trash" deleteContactId="${contact.Id}" title="Effacer ${contact.Name}"></span>
+                </div>
             </div>
-            <div class="contactCommandPanel">
-                <span class="editCmd cmdIcon fa fa-pencil" editContactId="${contact.Id}" title="Modifier ${contact.Name}"></span>
-                <span class="deleteCmd cmdIcon fa fa-trash" deleteContactId="${contact.Id}" title="Effacer ${contact.Name}"></span>
-            </div>
-        </div>
-    </div>           
-    `);
+        </div>           
+        `);
+    }
 }
