@@ -6,7 +6,7 @@ Init_UI();
 function Init_UI() {
     renderContacts();
     $('#Url').on("change", async function () {
-        $('#urlImage').load(location.href + " #urlImage");
+        loadImage();
     });
     $('#createContact').on("click", async function () {
         saveContentScrollPosition();
@@ -196,7 +196,7 @@ function renderContactForm(contact = null) {
         <form class="form" id="contactForm">
             <input type="hidden" name="Id" value="${contact.Id}"/>
 
-            <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${$('#Url').val()}"/>
+            <div id="imgPlaceholder"></div>
 
             <label for="Titre" class="form-label">Titre </label>
             <input 
@@ -283,5 +283,11 @@ function renderContact(contact) {
         </div>           
         `
         );
+    }
+
+    function loadImage(){
+        $('#imgPlaceholder').children("img").remove();
+        $('#imgPlaceholder').append(`
+        <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${$('#Url').val()}"/>`);
     }
 }
