@@ -191,6 +191,7 @@ function renderContactForm(contact = null) {
 
             <label for="Titre" class="form-label">Titre </label>
             <input 
+                class="form-control Alpha"
                 name="Name" 
                 id="Name" 
                 placeholder="Nom"
@@ -201,6 +202,7 @@ function renderContactForm(contact = null) {
             />
             <label for="Url" class="form-label">Url </label>
             <input
+                class="form-control Url"
                 name="Url"
                 id="Url"
                 placeholder="Url"
@@ -211,6 +213,7 @@ function renderContactForm(contact = null) {
             />
             <label for="Categorie" class="form-label">Categorie </label>
             <input 
+                class="form-control Alpha"
                 name="Categorie"
                 id="Categorie"
                 placeholder="Categorie"
