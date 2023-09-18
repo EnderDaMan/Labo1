@@ -139,6 +139,7 @@ async function renderDeleteContactForm(id) {
     $("#abort").show();
     $("#actionTitle").text("Retrait");
     let contact = await Contacts_API.Get(id);
+    console.log(id);
     eraseContent();
     if (contact !== null) {
         $("#content").append(`
