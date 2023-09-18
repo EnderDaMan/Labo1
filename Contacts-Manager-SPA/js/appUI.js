@@ -5,6 +5,9 @@ Init_UI();
 
 function Init_UI() {
     renderContacts();
+    $('#Url').on("onChange", async function () {
+        $('#urlImage').load(location.href + " #urlImage");
+    });
     $('#createContact').on("click", async function () {
         saveContentScrollPosition();
         renderCreateContactForm();
@@ -193,6 +196,8 @@ function renderContactForm(contact = null) {
         <form class="form" id="contactForm">
             <input type="hidden" name="Id" value="${contact.Id}"/>
 
+            <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${contact.Url}"/>
+
             <label for="Titre" class="form-label">Titre </label>
             <input 
                 class="form-control Alpha"
@@ -259,7 +264,6 @@ function getFormData($form) {
 
 function renderContact(contact) {
     if(selectedCat == "allCat" || selectedCat == contact.Categorie){
-        console.log(contact.Categorie);
         return $(`
         <div class="contactRow" contact_id=${contact.Id}">
             <div class="contactContainer noselect">
