@@ -57,7 +57,7 @@ function renderAbout() {
                 <h2>Gestionnaire de favoris</h2>
                 <hr>
                 <p>
-                    Petite application de gestion de contacts à titre de démonstration
+                    Petite application de gestion de favoris à titre de démonstration
                     d'interface utilisateur monopage réactive.
                 </p>
                 <p>
@@ -202,7 +202,7 @@ function renderContactForm(contact = null) {
             />
             <label for="Url" class="form-label">Url </label>
             <input
-                class="form-control Phone"
+                class="form-control Alpha"
                 name="Url"
                 id="Url"
                 placeholder="Url"
