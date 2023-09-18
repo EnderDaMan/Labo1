@@ -5,14 +5,6 @@ Init_UI();
 
 function Init_UI() {
     renderContacts();
-   /* $('#Url').on('input', async function () {
-        $(document).ready(function () {
-            console.log("Test");
-            const url = $('#Url').val();
-            const newUrl = `http://www.google.com/s2/favicons?sz=32&domain=${url}`;
-            $('#urlImage').attr('src', newUrl);
-        });
-    });*/
     $('#createContact').on("click", async function () {
         saveContentScrollPosition();
         renderCreateContactForm();
@@ -201,7 +193,7 @@ function renderContactForm(contact = null) {
         <form class="form" id="contactForm">
             <input type="hidden" name="Id" value="${contact.Id}"/>
 
-            <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="https://www.google.ca/"/>
+            <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="https://www.google.ca/"/><br>
 
             <label for="Titre" class="form-label">Titre </label>
             <input 
