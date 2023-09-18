@@ -5,10 +5,10 @@ Init_UI();
 
 function Init_UI() {
     renderContacts();
-    $('#Url').on("input", async function () {
+    $('#Url').on('input', async function () {
         const url = $('#Url').val();
-        const newUrl = "http://www.google.com/s2/favicons?sz=32&domain=${url}}";
-        $('#imgUrl').attr('src', newUrl);
+        const newUrl = `http://www.google.com/s2/favicons?sz=32&domain=${url}`;
+        $('#urlImage').attr('src', newUrl);
     });
     $('#createContact').on("click", async function () {
         saveContentScrollPosition();
@@ -271,7 +271,7 @@ function renderContact(contact) {
             <div class="contactContainer noselect">
                 <div class="contactLayout">
                     <img style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${contact.Url}"/>
-                    <span class="contactName>${contact.Titre}</span>
+                    <span class="contactName">${contact.Titre}</span>
                 </div>
                     <a href="${contact.Url}">
                         <span class="contactPhone">${contact.Categorie}</span>
