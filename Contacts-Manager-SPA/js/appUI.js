@@ -1,44 +1,43 @@
 //<span class="cmdIcon fa-solid fa-ellipsis-vertical"></span>
 let contentScrollPosition = 0;
-let selectedCat = "allCat";
 Init_UI();
 
 function Init_UI() {
-    renderContacts();
+    renderContacts(selectedCat);
     $('#createContact').on("click", async function () {
         saveContentScrollPosition();
         renderCreateContactForm();
     });
     $('#abort').on("click", async function () {
-        renderContacts();
+        renderContacts(cat);
     });
     $('#cegepCat').on("click", function () {
         selectedCat = "cegepCat";
-        renderContacts();
+        renderContacts(selectedCat);
     });
     $('#cloudCat').on("click", function () {
         selectedCat = "cloudCat";
-        renderContacts();
+        renderContacts(selectedCat);
     });
     $('#meteoCat').on("click", function () {
         selectedCat = "cegepCat";
-        renderContacts();
+        renderContacts(selectedCat);
     });
     $('#nouvCat').on("click", function () {
         selectedCat = "nouvCat";
-        renderContacts();
+        renderContacts(selectedCat);
     });
     $('#resCat').on("click", function () {
         selectedCat = "resCat";
-        renderContacts();
+        renderContacts(selectedCat);
     });
     $('#streamCat').on("click", function () {
         selectedCat = "streamCat";
-        renderContacts();
+        renderContacts(selectedCat);
     });
     $('#uniCat').on("click", function () {
         selectedCat = "uniCat";
-        renderContacts();
+        renderContacts(selectedCat);
     });
     $('#aboutCmd').on("click", function () {
         renderAbout();
@@ -69,7 +68,7 @@ function renderAbout() {
             </div>
         `))
 }
-async function renderContacts() {
+async function renderContacts(selectedCat = "allCat") {
     showWaitingGif();
     $("#actionTitle").text("Liste des favoris");
     $("#createContact").show();
@@ -78,7 +77,7 @@ async function renderContacts() {
     eraseContent();
     if (contacts !== null) {
         contacts.forEach(contact => {
-            $("#content").append(renderContact(contact));
+            $("#content").append(renderContact(contact, selectedCat));
         });
         restoreContentScrollPosition();
         // Attached click events on command icons
@@ -253,7 +252,7 @@ function getFormData($form) {
     return jsonObject;
 }
 
-function renderContact(contact) {
+function renderContact(contact, selectedCat) {
     if(selectedCat == "allCat" || selectedCat == contact.Categorie){
         return $(`
         <div class="contactRow" contact_id=${contact.Id}">
