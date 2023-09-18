@@ -143,7 +143,7 @@ async function renderDeleteContactForm(id) {
     if (contact !== null) {
         $("#content").append(`
         <div class="contactdeleteForm">
-            <h4>Effacer le contact suivant?</h4>
+            <h4>Effacer le contact suivant?</h4> 
             <br>
             <div class="contactRow" contact_id=${contact.Id}">
                 <div class="contactContainer">
