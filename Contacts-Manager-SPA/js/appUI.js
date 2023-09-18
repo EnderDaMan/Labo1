@@ -6,7 +6,9 @@ Init_UI();
 function Init_UI() {
     renderContacts();
     $('#Url').on("change", async function () {
-        loadImage();
+        $('#imgPlaceholder').children("img").remove();
+        $('#imgPlaceholder').append(`
+        <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${$('#Url').val()}"/>`);
     });
     $('#createContact').on("click", async function () {
         saveContentScrollPosition();
@@ -285,9 +287,4 @@ function renderContact(contact) {
         );
     }
 
-    function loadImage(){
-        $('#imgPlaceholder').children("img").remove();
-        $('#imgPlaceholder').append(`
-        <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${$('#Url').val()}"/>`);
-    }
 }
