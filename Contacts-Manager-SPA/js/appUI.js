@@ -5,14 +5,14 @@ Init_UI();
 
 function Init_UI() {
     renderContacts();
-    $('#Url').on('input', async function () {
+   /* $('#Url').on('input', async function () {
         $(document).ready(function () {
             console.log("Test");
             const url = $('#Url').val();
             const newUrl = `http://www.google.com/s2/favicons?sz=32&domain=${url}`;
             $('#urlImage').attr('src', newUrl);
         });
-    });
+    });*/
     $('#createContact').on("click", async function () {
         saveContentScrollPosition();
         renderCreateContactForm();
@@ -223,6 +223,7 @@ function renderContactForm(contact = null) {
                 required
                 RequireMessage="Veuillez entrer une url" 
                 InvalidMessage="Veuillez entrer un url valide"
+                onInput="updateImage()"
                 value="${contact.Url}" 
             />
             <label for="Categorie" class="form-label">Categorie </label>
@@ -289,5 +290,11 @@ function renderContact(contact) {
         `
         );
     }
+}
 
+async function updateImage(){
+    console.log("Test");
+    const url = $('#Url').val();
+    const newUrl = `http://www.google.com/s2/favicons?sz=32&domain=${url}`;
+    $('#urlImage').attr('src', newUrl);
 }
