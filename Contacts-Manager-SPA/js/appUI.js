@@ -198,7 +198,7 @@ function renderContactForm(contact = null) {
         <form class="form" id="contactForm">
             <input type="hidden" name="Id" value="${contact.Id}"/>
 
-            <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src=""/>
+            <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="https://google.com"/>
 
             <label for="Titre" class="form-label">Titre </label>
             <input 
