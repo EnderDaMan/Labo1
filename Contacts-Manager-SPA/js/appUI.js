@@ -5,7 +5,7 @@ Init_UI();
 
 function Init_UI() {
     renderContacts();
-    $('#Url').on("onChange", async function () {
+    $('#Url').on("change", async function () {
         $('#urlImage').load(location.href + " #urlImage");
     });
     $('#createContact').on("click", async function () {
