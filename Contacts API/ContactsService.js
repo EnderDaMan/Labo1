@@ -26,9 +26,16 @@ function response(res, status, data = null) {
     return true;
 }
 async function handleContactsRequest(req, res) {
-    let contactsRepository = new Repository("./contacts.json");
+    // Update the file path to point to the correct location
+    let contactsRepository = new Repository("./Contacts API/contacts.json");
     let contact = null;
-    if (req.url == "/api/contacts") {
+
+    // Check if the request URL starts with "/api/contacts"
+    if (req.url.startsWith("/api/contacts")) {
+        // Remove the '/api' prefix from the URL
+        req.url = req.url.replace("/api", "");
+
+        // Handle HTTP methods based on the modified URL
         switch (req.method) {
             case "GET":
                 return response(res, 200, JSON.stringify(contactsRepository.getAll()));
@@ -50,7 +57,8 @@ async function handleContactsRequest(req, res) {
                     return response(res, 400);
         }
     } else {
-        if (req.url.includes("/api/contacts/")) {
+        // Check for requests starting with "/contacts/"
+        if (req.url.includes("/contacts/")) {
             let id = parseInt(req.url.substring(req.url.lastIndexOf("/") + 1, req.url.length));
             switch (req.method) {
                 case "GET":
@@ -69,6 +77,7 @@ async function handleContactsRequest(req, res) {
     }
     return false;
 }
+
 
 function allowAllAnonymousAccess(res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
