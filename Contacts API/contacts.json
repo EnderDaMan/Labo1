@@ -1,4 +1,14 @@
 [
-    {"Id":1, "Titre":"College de Maisonneuve","Url":"https://www.cmaisonneuve.qc.ca/","Categorie":"Cegep"},
-    {"Id":2, "Titre":"College Lionel-Groulx","Url":"https://clg.qc.ca/","Categorie":"Cegep"}
+    {
+        "Id": 1,
+        "Titre": "College de Maisonneuve",
+        "Url": "https://www.cmaisonneuve.qc.ca/",
+        "Categorie": "Cegep"
+    },
+    {
+        "Id": 2,
+        "Titre": "College Lionel-Groulx",
+        "Url": "https://clg.qc.ca/",
+        "Categorie": "Cegep"
+    }
 ]
