@@ -206,9 +206,9 @@ function renderContactForm(contact = null) {
             <label for="Titre" class="form-label">Titre </label>
             <input 
                 class="form-control Alpha"
-                name="Name" 
-                id="Name" 
-                placeholder="Nom"
+                name="Titre" 
+                id="Titre" 
+                placeholder="Titre"
                 required
                 RequireMessage="Veuillez entrer un titre"
                 InvalidMessage="Le titre comporte un caractère illégal" 
