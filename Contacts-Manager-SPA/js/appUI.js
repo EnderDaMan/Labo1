@@ -1,6 +1,5 @@
 //<span class="cmdIcon fa-solid fa-ellipsis-vertical"></span>
 let contentScrollPosition = 0;
-selectedCat = "";
 Init_UI();
 
 function Init_UI() {
