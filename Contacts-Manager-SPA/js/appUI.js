@@ -1,43 +1,48 @@
 //<span class="cmdIcon fa-solid fa-ellipsis-vertical"></span>
 let contentScrollPosition = 0;
+let selectedCat = "allCat";
 Init_UI();
 
 function Init_UI() {
-    renderContacts(selectedCat);
+    renderContacts();
     $('#createContact').on("click", async function () {
         saveContentScrollPosition();
         renderCreateContactForm();
     });
     $('#abort').on("click", async function () {
-        renderContacts(selectedCat);
+        renderContacts();
+    });
+    $('#allCat').on("click", function () {
+        selectedCat = "allCat";
+        renderContacts();
     });
     $('#cegepCat').on("click", function () {
         selectedCat = "cegepCat";
-        renderContacts(selectedCat);
+        renderContacts();
     });
     $('#cloudCat').on("click", function () {
         selectedCat = "cloudCat";
-        renderContacts(selectedCat);
+        renderContacts();
     });
     $('#meteoCat').on("click", function () {
         selectedCat = "cegepCat";
-        renderContacts(selectedCat);
+        renderContacts();
     });
     $('#nouvCat').on("click", function () {
         selectedCat = "nouvCat";
-        renderContacts(selectedCat);
+        renderContacts();
     });
     $('#resCat').on("click", function () {
         selectedCat = "resCat";
-        renderContacts(selectedCat);
+        renderContacts();
     });
     $('#streamCat').on("click", function () {
         selectedCat = "streamCat";
-        renderContacts(selectedCat);
+        renderContacts();
     });
     $('#uniCat').on("click", function () {
         selectedCat = "uniCat";
-        renderContacts(selectedCat);
+        renderContacts();
     });
     $('#aboutCmd').on("click", function () {
         renderAbout();
@@ -68,7 +73,7 @@ function renderAbout() {
             </div>
         `))
 }
-async function renderContacts(selectedCat = "allCat") {
+async function renderContacts() {
     showWaitingGif();
     $("#actionTitle").text("Liste des favoris");
     $("#createContact").show();
@@ -77,7 +82,7 @@ async function renderContacts(selectedCat = "allCat") {
     eraseContent();
     if (contacts !== null) {
         contacts.forEach(contact => {
-            $("#content").append(renderContact(contact, selectedCat));
+            $("#content").append(renderContact(contact));
         });
         restoreContentScrollPosition();
         // Attached click events on command icons
@@ -252,7 +257,7 @@ function getFormData($form) {
     return jsonObject;
 }
 
-function renderContact(contact, selectedCat) {
+function renderContact(contact) {
     if(selectedCat == "allCat" || selectedCat == contact.Categorie){
         return $(`
         <div class="contactRow" contact_id=${contact.Id}">
