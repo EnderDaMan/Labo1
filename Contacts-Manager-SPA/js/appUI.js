@@ -17,31 +17,31 @@ function Init_UI() {
         renderContacts();
     });
     $('#cegepCat').on("click", function () {
-        selectedCat = "cegepCat";
+        selectedCat = "Cegep";
         renderContacts();
     });
     $('#cloudCat').on("click", function () {
-        selectedCat = "cloudCat";
+        selectedCat = "Cloud";
         renderContacts();
     });
     $('#meteoCat').on("click", function () {
-        selectedCat = "cegepCat";
+        selectedCat = "Meteo";
         renderContacts();
     });
     $('#nouvCat').on("click", function () {
-        selectedCat = "nouvCat";
+        selectedCat = "Nouvelles";
         renderContacts();
     });
     $('#resCat').on("click", function () {
-        selectedCat = "resCat";
+        selectedCat = "Reseaux sociaux";
         renderContacts();
     });
     $('#streamCat').on("click", function () {
-        selectedCat = "streamCat";
+        selectedCat = "Streaming";
         renderContacts();
     });
     $('#uniCat').on("click", function () {
-        selectedCat = "uniCat";
+        selectedCat = "Universite";
         renderContacts();
     });
     $('#aboutCmd').on("click", function () {
