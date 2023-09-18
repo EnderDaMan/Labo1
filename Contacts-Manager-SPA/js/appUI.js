@@ -148,9 +148,9 @@ async function renderDeleteContactForm(id) {
             <div class="contactRow" contact_id=${contact.Id}">
                 <div class="contactContainer">
                     <div class="contactLayout">
-                        <div class="contactName">${contact.Name}</div>
-                        <div class="contactPhone">${contact.Phone}</div>
-                        <div class="contactEmail">${contact.Email}</div>
+                        <div class="contactName">${contact.Tire}</div>
+                        <div class="contactPhone">${contact.Url}</div>
+                        <div class="contactEmail">${contact.Categorie}</div>
                     </div>
                 </div>  
             </div>   
@@ -193,7 +193,7 @@ function renderContactForm(contact = null) {
         <form class="form" id="contactForm">
             <input type="hidden" name="Id" value="${contact.Id}"/>
 
-            <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="https://www.google.ca/"/><br>
+            <img id="urlImage" style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${contact.Url}"/><br>
 
             <label for="Titre" class="form-label">Titre </label>
             <input 
