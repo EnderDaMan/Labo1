@@ -28,7 +28,7 @@ function response(res, status, data = null) {
 async function handleContactsRequest(req, res) {
     let contactsRepository = new Repository("./contacts.json");
     let contact = null;
-    if (req.url == "/Contacts%20API/contacts.json") {
+    if (req.url == "/api/contacts") {
         switch (req.method) {
             case "GET":
                 return response(res, 200, JSON.stringify(contactsRepository.getAll()));
