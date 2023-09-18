@@ -6,7 +6,7 @@ Init_UI();
 function Init_UI() {
     renderContacts();
     $('#Url').on("input", async function () {
-        const url = ('#Url').val();
+        const url = $('#Url').val();
         const newUrl = "http://www.google.com/s2/favicons?sz=32&domain=${url}}";
         $('#imgUrl').attr('src', newUrl);
     });
