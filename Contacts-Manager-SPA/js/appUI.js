@@ -148,7 +148,7 @@ async function renderDeleteContactForm(id) {
             <div class="contactRow" contact_id=${contact.Id}">
                 <div class="contactContainer">
                     <div class="contactLayout">
-                        <div class="contactName">${contact.Tire}</div>
+                        <div class="contactName">${contact.Titre}</div>
                         <div class="contactPhone">${contact.Url}</div>
                         <div class="contactEmail">${contact.Categorie}</div>
                     </div>
@@ -274,8 +274,8 @@ function renderContact(contact) {
                     </a>
                 </div>
                 <div class="contactCommandPanel">
-                    <span class="editCmd cmdIcon fa fa-pencil" editContactId="${contact.Id}" title="Modifier ${contact.Name}"></span>
-                    <span class="deleteCmd cmdIcon fa fa-trash" deleteContactId="${contact.Id}" title="Effacer ${contact.Name}"></span>
+                    <span class="editCmd cmdIcon fa fa-pencil" editContactId="${contact.Id}" title="Modifier ${contact.Titre}"></span>
+                    <span class="deleteCmd cmdIcon fa fa-trash" deleteContactId="${contact.Id}" title="Effacer ${contact.Titre}"></span>
                 </div>
             </div>
         </div>           
