@@ -1,6 +1,6 @@
 //<span class="cmdIcon fa-solid fa-ellipsis-vertical"></span>
 let contentScrollPosition = 0;
-let selectedCat = "";
+let selectedCat = "allCat";
 Init_UI();
 
 function Init_UI() {
@@ -254,7 +254,7 @@ function getFormData($form) {
 }
 
 function renderContact(contact) {
-
+    if(selectedCat == "allCat" || selectedCat == contact.Categorie){
         return $(`
         <div class="contactRow" contact_id=${contact.Id}">
             <div class="contactContainer noselect">
@@ -273,5 +273,5 @@ function renderContact(contact) {
             </div>
         </div>           
         `);
-    
+    }
 }
