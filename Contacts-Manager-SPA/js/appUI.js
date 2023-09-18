@@ -1,5 +1,6 @@
 //<span class="cmdIcon fa-solid fa-ellipsis-vertical"></span>
 let contentScrollPosition = 0;
+selectedCat = "";
 Init_UI();
 
 function Init_UI() {
@@ -9,7 +10,7 @@ function Init_UI() {
         renderCreateContactForm();
     });
     $('#abort').on("click", async function () {
-        renderContacts(cat);
+        renderContacts(selectedCat);
     });
     $('#cegepCat').on("click", function () {
         selectedCat = "cegepCat";
