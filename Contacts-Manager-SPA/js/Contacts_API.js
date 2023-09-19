@@ -1,7 +1,8 @@
 class Contacts_API {
     // static API_URL() { return "http://localhost:5000/api/contacts" };
     //Je ne comprend pas comment faire en sorte que le lien sans .json accede au fichier json apres plusieurs heures.
-    //J'ai donc utiliser ce lien pour pouvoir travailler sur le reste du laboratoire.
+    //J'ai donc utiliser ce lien pour pouvoir travailler sur le reste du laboratoire. Mon lien est:
+    //https://pyrite-bramble-hell.glitch.me/Contacts%20API/contacts.json
    static API_URL() { return "https://api-server-5.glitch.me/api/bookmarks" }; 
     static async Get(id = null) {
         return new Promise(resolve => {
