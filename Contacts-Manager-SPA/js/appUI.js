@@ -149,9 +149,9 @@ async function renderDeleteContactForm(id) {
             <div class="contactRow" contact_id=${contact.Id}">
                 <div class="contactContainer">
                     <div class="contactLayout">
-                        <div class="contactName">${contact.Titre}</div>
+                        <div class="contactName">${contact.Title}</div>
                         <div class="contactPhone">${contact.Url}</div>
-                        <div class="contactEmail">${contact.Categorie}</div>
+                        <div class="contactEmail">${contact.Category}</div>
                     </div>
                 </div>  
             </div>   
@@ -205,7 +205,7 @@ function renderContactForm(contact = null) {
                 required
                 RequireMessage="Veuillez entrer un titre"
                 InvalidMessage="Le titre comporte un caractère illégal" 
-                value="${contact.Titre}"
+                value="${contact.Title}"
             />
             <label for="Url" class="form-label">Url </label>
             <input
@@ -228,7 +228,7 @@ function renderContactForm(contact = null) {
                 required
                 RequireMessage="Veuillez entrer la categorie" 
                 InvalidMessage="Veuillez entrer une categorie valide"
-                value="${contact.Categorie}"
+                value="${contact.Category}"
             />
             <hr>
             <input type="submit" value="Enregistrer" id="saveContact" class="btn btn-primary">
@@ -268,15 +268,15 @@ function renderContact(contact) {
             <div class="contactContainer noselect">
                 <div class="contactLayout">
                     <img style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${contact.Url}"/>
-                    <span class="contactName">${contact.Titre}</span>
+                    <span class="contactName">${contact.Title}</span>
                 </div>
                     <a href="${contact.Url}">
-                        <span class="contactPhone">${contact.Categorie}</span>
+                        <span class="contactPhone">${contact.Category}</span>
                     </a>
                 </div>
                 <div class="contactCommandPanel">
-                    <span class="editCmd cmdIcon fa fa-pencil" editContactId="${contact.Id}" title="Modifier ${contact.Titre}"></span>
-                    <span class="deleteCmd cmdIcon fa fa-trash" deleteContactId="${contact.Id}" title="Effacer ${contact.Titre}"></span>
+                    <span class="editCmd cmdIcon fa fa-pencil" editContactId="${contact.Id}" title="Modifier ${contact.Title}"></span>
+                    <span class="deleteCmd cmdIcon fa fa-trash" deleteContactId="${contact.Id}" title="Effacer ${contact.Title}"></span>
                 </div>
             </div>
         </div>           
