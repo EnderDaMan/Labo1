@@ -267,8 +267,7 @@ function renderContact(contact) {
         <div class="contactRow" contact_id=${contact.Id}">
             <div class="contactContainer noselect">
                 <div class="contactLayout">
-                    <img style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${contact.Url}"/>
-                    <span class="contactName">${contact.Title}</span>
+                    <img style="height: 32px; float: left; margin-right: 8px;" src="http://www.google.com/s2/favicons?sz=32&domain=${contact.Url}"/><span class="contactName">${contact.Title}</span>
                 </div>
                     <a href="${contact.Url}">
                         <span class="contactPhone">${contact.Category}</span>
