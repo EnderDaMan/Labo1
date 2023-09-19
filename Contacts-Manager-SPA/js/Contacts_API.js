@@ -1,6 +1,6 @@
 class Contacts_API {
     // static API_URL() { return "http://localhost:5000/api/contacts" };
-   static API_URL() { return "https://pyrite-bramble-hell.glitch.me/api/contacts" }; 
+   static API_URL() { return "https://api-server-5.glitch.me/api/bookmarks" }; 
     static async Get(id = null) {
         return new Promise(resolve => {
             $.ajax({
